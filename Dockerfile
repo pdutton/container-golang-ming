@@ -6,7 +6,7 @@ ADD https://github.com/niXman/mingw-builds-binaries/releases/download/13.1.0-rt_
 
 RUN 7z x C:/mingw.7z
 
-FROM golang:windowsservercore
+FROM golang:1.21
 
 COPY --from=extractor ["C:/mingw64","C:/Program Files/mingw64"]
 RUN ["powershell", "setx", "/M", "PATH", "$($env:PATH + ';C:\\Program Files\\mingw64\\bin')"]
